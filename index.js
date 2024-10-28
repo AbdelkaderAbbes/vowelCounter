@@ -22,33 +22,36 @@ input.oninput = function () {
   let u = 0;
   let word = 0;
   let letter = 0;
-  input.value.split(" ").forEach((ele) => {
-    word++;
-    ele
-      .toLowerCase()
-      .split("")
-      .filter((e) => e.match(regex))
-      .forEach((l) => {
-        letter++;
-        switch (l) {
-          case "a":
-            a++;
-            break;
-          case "e":
-            e++;
-            break;
-          case "i":
-            i++;
-            break;
-          case "o":
-            o++;
-            break;
-          case "u":
-            u++;
-            break;
-        }
-      });
-  });
+  input.value
+    .split(" ")
+    .filter((e) => !!e)
+    .forEach((ele) => {
+      word++;
+      ele
+        .toLowerCase()
+        .split("")
+        .filter((e) => e.match(regex))
+        .forEach((l) => {
+          letter++;
+          switch (l) {
+            case "a":
+              a++;
+              break;
+            case "e":
+              e++;
+              break;
+            case "i":
+              i++;
+              break;
+            case "o":
+              o++;
+              break;
+            case "u":
+              u++;
+              break;
+          }
+        });
+    });
   vowel = a + e + i + o + u;
   letterCount.innerText = letter;
   vowelCount.innerText = vowel;
